@@ -1,0 +1,37 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: "Open Sans";
+}
+
+h1,
+h3,
+h4,
+li
+ {
+  color: #2d3c49;
+  font-weight: normal;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li:hover {
+    cursor: pointer;
+}
+
+#map {
+  bottom:0px;
+  height: 100%;
+  left: 40%;
+  position: absolute;
+  right: 0px;
+}
+
+#pano {
+  width: 200px;
+  height: 200px;
+}

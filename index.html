@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Neighborhood Map</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" media="screen and (max-width: 660px)" href="css/mobile.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Neighborhood Map</h1>
+
+      <!-- Filter text box -->
+      <form>
+        <input id="textbox" type="text" placeholder="Search Location" data-bind="textInput: filterInput, valueUpdate: afterkeydown">
+      </form>
+
+      <!-- Location list - allowing for filtering -->
+      <div class="list">
+          <ul data-bind="foreach: filterList">
+              <li data-bind="text: title, click: showInfoWindow, event: { mouseover: highlightMarker, mouseout: lowlightMarker }"></li>
+          </ul>
+      </div>
+
+      <!-- Google map is loaded here - error message is shown if something goes wrong -->
+      <div id="map">There went something wrong when loading Google Maps - please try again!</div>
+    </div>
+
+    <!-- knockout js requirements -->
+    <script src="js/lib/knockout-3.2.0.js"></script>
+
+    <!-- jquery requirements -->
+    <script src="js/lib/jquery.min.js"></script>
+
+    <script src="js/script.js"></script>
+
+    <script async defer
+        src=
+        "https://maps.googleapis.com/maps/api/js?libraries=geometry&key=AIzaSyCPtwQGiZtWghfJCpQokY3U2syuQHr5aDM&v=3&callback=initMap" onerror="googleError()">
+    </script>
+
+</body>
+
+</html>
