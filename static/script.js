@@ -142,6 +142,14 @@ var Location = function(data) {
   this.location = data.location;
   this.images = data.images;
 
+  this.slideshow = createSlideshow(this.images);
+
+  console.log(this.slideshow);
+
+  this.uri = "{{ url_for('static', filename='" + this.images[0] + ") }}";
+
+  console.log(this.uri);
+
   this.visible = ko.observable(true);
 
   var defaultIcon = makeMarkerIcon('0091ff');
@@ -240,6 +248,22 @@ function makeMarkerIcon(markerColor) {
   return markerImage;
 };
 
+// Function for creating the image Slideshow
+
+function createSlideshow(pictures) {
+  var output = '<div class="slideshow">';
+  var path = '';
+  for (i = 0; i < pictures.length; i++) {
+    path = "{{ url_for('static', filename='" + pictures[i] + ") }}";
+    console.log(path);
+    output += '<img class="mySlides" src=' + path  + '>';
+  }
+  output += '<button class="w3-button w3-display-left" onclick="plusDivs(-1)">&#10094;</button>';
+  output += '<button class="w3-button w3-display-right" onclick="plusDivs(+1)">&#10095;</button>';
+  output += '</div>';
+  return output;
+}
+
 // Functions for animating the Slideshow
 
 var slideIndex = 1;
@@ -262,20 +286,10 @@ function showDivs(n) {
 }
 
 // Function for populating the InfoWindow with content.
-function populateInfoWindow(marker, pictures, infowindow) {
+function populateInfoWindow(marker, slideshow, infowindow) {
   if (infowindow.marker != marker) {
     infowindow.marker = marker;
-    var output = '<div class="slideshow">';
-    var path = '';
-    for (i = 0; i < pictures.length; i++) {
-      path = "{{ url_for('static', filename='" + pictures[i] + ") }}";
-      console.log(path);
-      output += '<img class="mySlides" src=' + path  + '>';
-    }
-    output += '<button class="w3-button w3-display-left" onclick="plusDivs(-1)">&#10094;</button>';
-    output += '<button class="w3-button w3-display-right" onclick="plusDivs(+1)">&#10095;</button>';
-    output += '</div>';
-    infowindow.setContent('<div id="infowindow">' + '<h3>' + marker.title + '</h3>' + '<h4>Relevant Pictures</h4>' + output);
+    infowindow.setContent('<div id="infowindow">' + '<h3>' + marker.title + '</h3>' + '<h4>Relevant Pictures</h4>' + slideshow);
     infowindow.addListener('closeclick', function() {
       infowindow.setMarker = null;
     });
