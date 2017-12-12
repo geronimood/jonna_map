@@ -21,7 +21,7 @@ def showLogin():
 # Show Index Page
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/jonna/', methods=['GET', 'POST'])
-def showIndex(user_pw):
+def showIndex():
     if request.method == 'POST':
         if request.form['name']:
             user_pw_input = request.form['name']
