@@ -25,7 +25,7 @@ def showIndex(user_pw):
     if request.method == 'POST':
         if request.form['name']:
             user_pw_input = request.form['name']
-            if user_pw_input = password:
+            if user_pw_input == password:
                 return render_template('index.html')
             else:
                 return render_template('login.html')
