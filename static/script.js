@@ -146,6 +146,10 @@ var Location = function(data) {
 
   console.log(this.slideshow);
 
+  this.uri = "{{ url_for('static', filename='" + this.images[0] + ") }}";
+
+  console.log(this.uri);
+
   this.visible = ko.observable(true);
 
   var defaultIcon = makeMarkerIcon('0091ff');
