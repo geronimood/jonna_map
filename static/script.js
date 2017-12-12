@@ -249,7 +249,7 @@ function createSlideshow(pictures) {
   var path = '';
   for (var i = 0; i < pictures.length; i++) {
     path = "{{ url_for('static', filename='" + pictures[i] + ") }}";
-    output += '<img class="mySlides" src=' + path  + '>';
+    output += '<img class="mySlides" src="' + path  + '">';
   }
   output += '<button class="w3-button w3-display-left" onclick="plusDivs(-1)">&#10094;</button>';
   output += '<button class="w3-button w3-display-right" onclick="plusDivs(+1)">&#10095;</button>';
