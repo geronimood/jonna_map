@@ -30,6 +30,7 @@ APPLICATION_NAME = "Jonna Map"
 #    return render_template('login.html', STATE=state)
 
 # Show Index Page
+@app.route('/')
 @app.route('/jonna/')
 def showIndex():
     return render_template('index.html')
