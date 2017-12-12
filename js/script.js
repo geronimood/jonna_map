@@ -27,7 +27,27 @@ var initialLocations = [
   {
     title: 'Hasenheide',
     location: {lat: 52.482901, lng: 13.407235},
-    images: ['img/IMG_3943.jpg', 'img/IMG_4059.jpg', 'img/IMG_4297', 'img/IMG_4538']
+    images: ['img/IMG_3943.jpg', 'img/IMG_4059.jpg', 'img/IMG_4297.jpg', 'img/IMG_4538.jpg']
+  },
+  {
+    title: 'Kassel',
+    location: {lat: 51.3344827, lng: 9.4973313},
+    images: ['img/IMG_3943.jpg', 'img/IMG_4059.jpg', 'img/IMG_4297.jpg', 'img/IMG_4538.jpg']
+  },
+  {
+    title: 'Ulm',
+    location: {lat: 48.409296, lng: 9.9546359},
+    images: ['img/IMG_3943.jpg', 'img/IMG_4059.jpg', 'img/IMG_4297.jpg', 'img/IMG_4538.jpg']
+  },
+  {
+    title: 'Vogesen - Hautes Huttes',
+    location: {lat: 48.0987658, lng: 7.10977},
+    images: ['img/IMG_3943.jpg', 'img/IMG_4059.jpg', 'img/IMG_4297.jpg', 'img/IMG_4538.jpg']
+  },
+  {
+    title: 'Atlantik - Carcans Plage',
+    location: {lat: 45.0826302, lng: -1.1956478},
+    images: ['img/IMG_3943.jpg', 'img/IMG_4059.jpg', 'img/IMG_4297.jpg', 'img/IMG_4538.jpg']
   }
 ];
 
@@ -103,8 +123,8 @@ function initMap() {
 
   // Constructor creates a new map.
   map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 52.520008, lng: 13.404954},
-    zoom: 12,
+    center: {lat: 48.0987658, lng: 7.10977},
+    zoom: 5,
     styles: styles,
     mapTypeControl: false
   });
@@ -135,7 +155,7 @@ var Location = function(data) {
       position: this.location,
       title: this.title,
       icon: defaultIcon,
-      animation: google.maps.Animation.DROP,
+      animation: google.maps.Animation.DROP
   });
 
   // Event listener for click on marker -> runs populateInfoWindow function.
@@ -231,16 +251,35 @@ function createSlideshow(pictures) {
   return output;
 }
 
+// Functions for animating the Slideshow
+
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length} ;
+  for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+  }
+  //x[slideIndex-1].style.display = "block";
+
+}
+
 // Function for populating the InfoWindow with content.
 function populateInfoWindow(marker, slideshow, infowindow) {
   if (infowindow.marker != marker) {
     infowindow.marker = marker;
-    infowindow.setContent('<div>' + '<h3>' + marker.title + '</h3>' + '<h4>Relevant Pictures</h4>' + slideshow);
+    infowindow.setContent('<div id="infowindow">' + '<h3>' + marker.title + '</h3>' + '<h4>Relevant Pictures</h4>' + slideshow);
     infowindow.addListener('closeclick', function() {
       infowindow.setMarker = null;
     });
-    var streetViewService = new google.maps.StreetViewService();
-    var radius = 50;
     infowindow.open(map, marker);
   }
 };
