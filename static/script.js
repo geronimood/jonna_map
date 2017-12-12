@@ -250,6 +250,7 @@ function createSlideshow(pictures) {
   var output = '<div class="slideshow">';
   for (i = 0; i < pictures.length; i++) {
     path = "{{ url_for('static', filename='" + pictures[i] + ") }}"
+    console.log(path);
     output += '<img class="mySlides" src=' + path  + '>';
   }
   output += '<button class="w3-button w3-display-left" onclick="plusDivs(-1)">&#10094;</button>';
