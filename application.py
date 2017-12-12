@@ -3,37 +3,37 @@
 from flask import Flask, render_template, request, redirect, jsonify, \
                   url_for, flash, g
 
-app = Flask(__name__, static_url_path='/static')
+app = Flask(__name__)
 app.config['SESSION_TYPE'] = 'memcached'
 app.config['SECRET_KEY'] = 'super secret key'
 
 APPLICATION_NAME = "Jonna Map"
 
+password = "Jonna"
 
-# Decorator for login required
-
-#def login_required(f):
-#    @wraps(f)
-#    def decorated_function(*args, **kwargs):
-#        if 'username' not in login_session:
-#            flash("You are not allowed to access there")
-#            return redirect('/login')
-#        return f(*args, **kwargs)
-#    return decorated_function
+user_pw_input = ""
 
 # Route for login
-#@app.route('/login')
-#def showLogin():
-#    state = ''.join(random.choice(string.ascii_uppercase + string.digits)
-#                    for x in xrange(32))
-#    login_session['state'] = state
-#    return render_template('login.html', STATE=state)
+@app.route('/login')
+def showLogin():
+    return render_template('login.html')
 
 # Show Index Page
-@app.route('/')
-@app.route('/jonna/')
-def showIndex():
-    return render_template('index.html')
+@app.route('/', methods=['GET', 'POST'])
+@app.route('/jonna/', methods=['GET', 'POST'])
+def showIndex(user_pw):
+    if request.method == 'POST':
+        if request.form['name']:
+            user_pw_input = request.form['name']
+            if user_pw_input = password:
+                return render_template('index.html')
+            else:
+                return render_template('login.html')
+    else:
+        if user_pw != password:
+            return render_template('login.html')
+        else:
+            return render_template('index.html')
 
 # Execute file only if it is in the main directory
 # and run the webserver on localhost port 8000
