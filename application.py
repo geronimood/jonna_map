@@ -3,7 +3,7 @@
 from flask import Flask, render_template, request, redirect, jsonify, \
                   url_for, flash, g
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static')
 app.config['SESSION_TYPE'] = 'memcached'
 app.config['SECRET_KEY'] = 'super secret key'
 
