@@ -249,7 +249,7 @@ function makeMarkerIcon(markerColor) {
 function createSlideshow(pictures) {
   var output = '<div class="slideshow">';
   for (i = 0; i < pictures.length; i++) {
-    path = "{{ url_for('static', filename='" + pictures[i] + ") }}"
+    path = "{{ url_for('static', filename='" + pictures[i] + ") }}";
     console.log(path);
     output += '<img class="mySlides" src=' + path  + '>';
   }
