@@ -30,10 +30,7 @@ def showIndex():
             else:
                 return render_template('login.html')
     else:
-        if user_pw_input != password:
-            return render_template('login.html')
-        else:
-            return render_template('index.html')
+        return render_template('login.html')
 
 # Execute file only if it is in the main directory
 # and run the webserver on localhost port 8000
