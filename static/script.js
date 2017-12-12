@@ -16,7 +16,7 @@ var initialLocations = [
     images: ['img/IMG_3943.jpg', 'img/IMG_4059.jpg', 'img/IMG_4297.jpg', 'img/IMG_4538.jpg']
   },
   {
-    title: 'Kinietzer 98 - Home Sweet Home',
+    title: 'Kienietzer 98 - Home Sweet Home',
     location: {lat: 52.4762807, lng: 13.425673},
     images: ['img/IMG_3943.jpg', 'img/IMG_4059.jpg', 'img/IMG_4297.jpg', 'img/IMG_4538.jpg']
   },
@@ -248,8 +248,9 @@ function makeMarkerIcon(markerColor) {
 
 function createSlideshow(pictures) {
   var output = '<div class="slideshow">';
+  var path = '';
   for (i = 0; i < pictures.length; i++) {
-    var path = "{{ url_for('static', filename='" + pictures[i] + ") }}";
+    path = "{{ url_for('static', filename='" + pictures[i] + ") }}";
     console.log(path);
     output += '<img class="mySlides" src=' + path  + '>';
   }
