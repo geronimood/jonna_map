@@ -8,7 +8,7 @@ var initialLocations = [
   {
     title: 'St. Joseph Krankenhaus',
     location: {lat: 52.478116, lng: 13.37389},
-    images: ['/var/www/jonna/img/IMG_3943.jpg', '/var/www/jonna/img/IMG_4059.jpg', '/var/www/jonna/img/IMG_4297.jpg', '/var/www/jonna/img/IMG_4538.jpg']
+    images: ['img/IMG_3943.jpg', 'img/IMG_4059.jpg', 'img/IMG_4297.jpg', 'img/IMG_4538.jpg']
   },
   {
     title: 'Tempelhofer Feld',
@@ -249,7 +249,8 @@ function makeMarkerIcon(markerColor) {
 function createSlideshow(pictures) {
   var output = '<div class="slideshow">';
   for (i = 0; i < pictures.length; i++) {
-    output += '<img class="mySlides" src=' + pictures[i] + '>';
+    path = "{{ url_for('static', filename='" + pictures[i] + ") }}"
+    output += '<img class="mySlides" src=' + path  + '>';
   }
   output += '<button class="w3-button w3-display-left" onclick="plusDivs(-1)">&#10094;</button>';
   output += '<button class="w3-button w3-display-right" onclick="plusDivs(+1)">&#10095;</button>';
