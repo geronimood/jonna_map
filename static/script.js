@@ -144,7 +144,7 @@ var Location = function(data) {
 
   this.slideshow = createSlideshow(this.images);
 
-  console.log(this.slideshow);
+  //console.log(this.slideshow);
 
   this.uri = "{{ url_for('static', filename='" + this.images[0] + ") }}";
 
