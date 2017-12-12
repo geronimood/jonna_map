@@ -30,7 +30,7 @@ def showIndex():
             else:
                 return render_template('login.html')
     else:
-        if user_pw != password:
+        if user_pw_input != password:
             return render_template('login.html')
         else:
             return render_template('index.html')
