@@ -144,12 +144,6 @@ var Location = function(data) {
 
   this.slideshow = createSlideshow(this.images);
 
-  console.log(this.slideshow);
-
-  this.uri = "{{ url_for('static', filename='" + this.images[0] + ") }}";
-
-  console.log(this.uri);
-
   this.visible = ko.observable(true);
 
   var defaultIcon = makeMarkerIcon('0091ff');
@@ -255,7 +249,6 @@ function createSlideshow(pictures) {
   var path = '';
   for (var i = 0; i < pictures.length; i++) {
     path = "{{ url_for('static', filename='" + pictures[i] + ") }}";
-    console.log(path);
     output += '<img class="mySlides" src=' + path  + '>';
   }
   output += '<button class="w3-button w3-display-left" onclick="plusDivs(-1)">&#10094;</button>';
@@ -287,13 +280,15 @@ function showDivs(n) {
 
 // Function for populating the InfoWindow with content.
 function populateInfoWindow(marker, slideshow, infowindow) {
+  var pics = slideshow;
   if (infowindow.marker != marker) {
     infowindow.marker = marker;
-    infowindow.setContent('<div id="infowindow">' + '<h3>' + marker.title + '</h3>' + '<h4>Relevant Pictures</h4>' + slideshow);
+    infowindow.setContent('<div id="infowindow">' + '<h3>' + marker.title + '</h3>' + '<h4>Relevant Pictures</h4>' + pics);
     infowindow.addListener('closeclick', function() {
       infowindow.setMarker = null;
     });
     infowindow.open(map, marker);
+    console.log(pics);
   }
 };
 
