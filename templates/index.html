@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>Jonna Map 2017</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" media="screen and (max-width: 660px)" href="css/mobile.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" media="screen and (max-width: 660px)" href="{{ url_for('static', filename='mobile.css') }}" />
   </head>
 
   <body>
@@ -30,12 +30,12 @@
     </div>
 
     <!-- knockout js requirements -->
-    <script src="js/lib/knockout-3.2.0.js"></script>
+    <script src="{{ url_for('js/lib', filename='knockout-3.2.0.js') }}"></script>
 
     <!-- jquery requirements -->
-    <script src="js/lib/jquery.min.js"></script>
+    <script src="{{ url_for('js/lib', filename='jquery.min.js') }}"></script>
 
-    <script src="js/script.js"></script>
+    <script src="{{ url_for('js', filename='script.js') }}"></script>
 
     <script async defer
         src=
