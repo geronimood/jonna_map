@@ -1,4 +1,5 @@
 var map;
+var initialCenter;
 var largeInfoWindow;
 var markers = [];
 
@@ -122,8 +123,9 @@ function initMap() {
   ];
 
   // Constructor creates a new map.
+  initialCenter = {lat: 48.0987658, lng: 7.10977};
   map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 48.0987658, lng: 7.10977},
+    center: initialCenter,
     zoom: 5,
     styles: styles,
     mapTypeControl: false
@@ -224,6 +226,10 @@ var ViewModel = function() {
         });
       }
     }, this);
+
+    this.showAll = function() {
+      map.setCenter(initialCenter);
+    }
 };
 
 // Function for changing the marker color.
