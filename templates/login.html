@@ -13,7 +13,7 @@
       <h1>Bitte einloggen!</h1>
 
       <form action="{{ url_for('showIndex')}}" method = "post">
-        <input type ="text" name="name">
+        <input type ="text" name="name" autocomplete="off">
         <button id="submit" type="submit">
         <span aria-hidden="true"></span>OK</button>
       </form>

@@ -26,8 +26,11 @@ ul {
 
 li:hover {
     cursor: pointer;
-    padding: 3px;
-    margin: 2px;
+}
+
+li {
+  padding: 3px;
+  margin: 2px;
 }
 
 #map {
