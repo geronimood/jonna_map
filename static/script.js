@@ -43,13 +43,57 @@ var initialLocations = [
   {
     title: 'Vogesen - Hautes Huttes',
     location: {lat: 48.0987658, lng: 7.10977},
-    images: ['img/IMG_3943.jpg', 'img/IMG_4059.jpg', 'img/IMG_4297.jpg', 'img/IMG_4538.jpg']
+    images: ['https://photos-3.dropbox.com/t/2/AAAYu26qz1ij-i1yIhtYCAUBAgy-v2a-2HgQyLUMiGx7Ag/12/45430114/jpeg/32x32/1/_/1/2/thumb_IMG_3650_1024.jpg/ELS15iIYww4gAigC/8w-pKTICoOnvijqz3kRudZ5SW51GSt8N8Kc-eC-jcKU?size=300x300&size_mode=3',
+            'https://photos-5.dropbox.com/t/2/AACOeuaUoBFhBX5SwsnFIRfz70KNdczTGM7WRNJWY8PY5w/12/45430114/jpeg/32x32/1/_/1/2/thumb_IMG_3653_1024.jpg/ELS15iIYww4gAigC/xIM_HHO-SkpLimwmOZnHSz1cmRht0LQa2zClxdSXnyg?size=300x300&size_mode=3',
+            'https://photos-3.dropbox.com/t/2/AADDNkyNpfvPlF5OTAryEkR7ZE2OWUrm4GuFqln17_N3dw/12/45430114/jpeg/32x32/1/_/1/2/thumb_IMG_3667_1024.jpg/ELS15iIYww4gAigC/9GQpw-TP7wM6RFh5klsRokeU2MTu8mXlnHwTCPjz5D0?size=300x300&size_mode=3',
+            'https://photos-2.dropbox.com/t/2/AACHe7kPZBeSESzuGkFPqbaLqWETRUwMGOc8CxnHzUAB3g/12/45430114/jpeg/32x32/1/_/1/2/thumb_IMG_3674_1024.jpg/ELS15iIYww4gAigC/WBGhMcf6yLJKZkylu19tqIqoWoyjffHiLSJUXP-qPyw?size=300x300&size_mode=3'
+    ]
   },
   {
     title: 'Atlantik - Carcans Plage',
     location: {lat: 45.0826302, lng: -1.1956478},
     images: ['img/IMG_3943.jpg', 'img/IMG_4059.jpg', 'img/IMG_4297.jpg', 'img/IMG_4538.jpg']
-  }
+  },
+  {
+    title: 'Buergeramt Tempelhof',
+    location: {lat: 52.4621986, lng: 13.3856074},
+    images: ['img/IMG_3943.jpg', 'img/IMG_4059.jpg', 'img/IMG_4297.jpg', 'img/IMG_4538.jpg']
+  },
+  {
+    title: 'Csabis Buero',
+    location: {lat: 52.4994332, lng: 13.4319712},
+    images: ['img/IMG_3943.jpg', 'img/IMG_4059.jpg', 'img/IMG_4297.jpg', 'img/IMG_4538.jpg']
+  },
+  {
+    title: 'Flughafen Schoenefeld',
+    location: {lat: 52.3854444, lng: 13.5194261},
+    images: ['img/IMG_3943.jpg', 'img/IMG_4059.jpg', 'img/IMG_4297.jpg', 'img/IMG_4538.jpg']
+  },
+  {
+    title: 'Fulda 6',
+    location: {lat: 52.4829832, lng: 13.4328913},
+    images: ['img/IMG_3943.jpg', 'img/IMG_4059.jpg', 'img/IMG_4297.jpg', 'img/IMG_4538.jpg']
+  },
+  {
+    title: 'Goerlitzer Park',
+    location: {lat: 52.4965095, lng: 13.4355578},
+    images: ['img/IMG_3943.jpg', 'img/IMG_4059.jpg', 'img/IMG_4297.jpg', 'img/IMG_4538.jpg']
+  },
+  {
+    title: 'Kreuz-Koelln',
+    location: {lat: 52.4871557, lng: 13.4367517},
+    images: ['img/IMG_3943.jpg', 'img/IMG_4059.jpg', 'img/IMG_4297.jpg', 'img/IMG_4538.jpg']
+  },
+  {
+    title: 'Prinzenbad',
+    location: {lat: 52.497381, lng: 13.4023118},
+    images: ['img/IMG_3943.jpg', 'img/IMG_4059.jpg', 'img/IMG_4297.jpg', 'img/IMG_4538.jpg']
+  },
+  {
+    title: 'Schillerkiez',
+    location: {lat: 52.477002, lng: 13.4209917},
+    images: ['img/IMG_3943.jpg', 'img/IMG_4059.jpg', 'img/IMG_4297.jpg', 'img/IMG_4538.jpg']
+  },
 ];
 
 // Function initMap is called by the google API callback.
@@ -248,8 +292,7 @@ function createSlideshow(pictures) {
   var output = '<div class="slideshow">';
   var path = '';
   for (var i = 0; i < pictures.length; i++) {
-    path = "{{ url_for('static', filename='" + pictures[i] + "') }}";
-    output += '<img class="mySlides" src=' + path  + '>';
+    output += '<img class="mySlides" src=' + pictures[i]  + '>';
   }
   output += '<button class="w3-button w3-display-left" onclick="plusDivs(-1)">&#10094;</button>';
   output += '<button class="w3-button w3-display-right" onclick="plusDivs(+1)">&#10095;</button>';
