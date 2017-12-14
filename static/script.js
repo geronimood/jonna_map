@@ -44,11 +44,7 @@ var initialLocations = [
   {
     title: 'Vogesen - Hautes Huttes',
     location: {lat: 48.0987658, lng: 7.10977},
-    images: ['https://photos-3.dropbox.com/t/2/AAAYu26qz1ij-i1yIhtYCAUBAgy-v2a-2HgQyLUMiGx7Ag/12/45430114/jpeg/32x32/1/_/1/2/thumb_IMG_3650_1024.jpg/ELS15iIYww4gAigC/8w-pKTICoOnvijqz3kRudZ5SW51GSt8N8Kc-eC-jcKU?size=300x300&size_mode=3',
-            'https://photos-5.dropbox.com/t/2/AACOeuaUoBFhBX5SwsnFIRfz70KNdczTGM7WRNJWY8PY5w/12/45430114/jpeg/32x32/1/_/1/2/thumb_IMG_3653_1024.jpg/ELS15iIYww4gAigC/xIM_HHO-SkpLimwmOZnHSz1cmRht0LQa2zClxdSXnyg?size=300x300&size_mode=3',
-            'https://photos-3.dropbox.com/t/2/AADDNkyNpfvPlF5OTAryEkR7ZE2OWUrm4GuFqln17_N3dw/12/45430114/jpeg/32x32/1/_/1/2/thumb_IMG_3667_1024.jpg/ELS15iIYww4gAigC/9GQpw-TP7wM6RFh5klsRokeU2MTu8mXlnHwTCPjz5D0?size=300x300&size_mode=3',
-            'https://photos-2.dropbox.com/t/2/AACHe7kPZBeSESzuGkFPqbaLqWETRUwMGOc8CxnHzUAB3g/12/45430114/jpeg/32x32/1/_/1/2/thumb_IMG_3674_1024.jpg/ELS15iIYww4gAigC/WBGhMcf6yLJKZkylu19tqIqoWoyjffHiLSJUXP-qPyw?size=300x300&size_mode=3'
-    ]
+    images: []
   },
   {
     title: 'Atlantik - Carcans Plage',
@@ -306,9 +302,10 @@ function createSlideshow(pictures) {
   for (var i = 0; i < pictures.length; i++) {
     output += '<img class="mySlides" src="' + pictures[i]  + '">';
   }
-  output += '<button class="w3-button w3-display-left" onclick="plusDivs(-1)">&#10094;</button>';
-  output += '<button class="w3-button w3-display-right" onclick="plusDivs(+1)">&#10095;</button>';
+  output += '<button class="button-left" onclick="plusDivs(-1)">&#10094;</button>';
+  output += '<button class="button-right" onclick="plusDivs(+1)">&#10095;</button>';
   output += '</div>';
+  console.log('hi');
   return output;
 }
 
@@ -342,7 +339,6 @@ function populateInfoWindow(marker, slideshow, infowindow) {
       infowindow.setMarker = null;
     });
     infowindow.open(map, marker);
-    console.log(slideshow);
   }
 };
 
