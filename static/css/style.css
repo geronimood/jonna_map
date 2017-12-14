@@ -34,7 +34,9 @@ li {
 }
 
 .zoomButton,
-#textbox
+#textbox,
+#password,
+#submit
 {
   padding: 5px;
   margin: 3px;
