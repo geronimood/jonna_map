@@ -53,9 +53,9 @@ var initialLocations = [
   {
     title: 'Atlantik - Carcans Plage',
     location: {lat: 45.0826302, lng: -1.1956478},
-    images: ['https://dl.dropboxusercontent.com/s/2ozpa76hx9m9idx/thumb_IMG_3650_1024.jpg?raw=1'
-             'https://dl.dropboxusercontent.com/s/n5vz0du3ygrmni5/thumb_IMG_3653_1024.jpg?raw=1'
-             'https://dl.dropboxusercontent.com/s/4yfj36dyieayf8y/thumb_IMG_3667_1024.jpg?raw=1'
+    images: ['https://dl.dropboxusercontent.com/s/2ozpa76hx9m9idx/thumb_IMG_3650_1024.jpg?raw=1',
+             'https://dl.dropboxusercontent.com/s/n5vz0du3ygrmni5/thumb_IMG_3653_1024.jpg?raw=1',
+             'https://dl.dropboxusercontent.com/s/4yfj36dyieayf8y/thumb_IMG_3667_1024.jpg?raw=1',
              'https://dl.dropboxusercontent.com/s/mwqd3ufcxcczvph/thumb_IMG_3674_1024.jpg?raw=1'
     ]
   },
