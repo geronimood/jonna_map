@@ -1,5 +1,6 @@
 var map;
 var initialCenter;
+var berlinCenter;
 var largeInfoWindow;
 var markers = [];
 
@@ -168,6 +169,7 @@ function initMap() {
 
   // Constructor creates a new map.
   initialCenter = {lat: 48.0987658, lng: 7.10977};
+  berlinCenter = {lat: 52.4742941, lng: 13.4146008};
   map = new google.maps.Map(document.getElementById('map'), {
     center: initialCenter,
     zoom: 5,
@@ -269,8 +271,8 @@ var ViewModel = function() {
       }
     }, this);
 
-    this.showAll = function() {
-      map.setCenter(initialCenter);
+    this.showAll = function(center) {
+      map.setCenter(center);
     }
 };
 

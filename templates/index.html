@@ -15,7 +15,8 @@
       <!-- Filter text box -->
       <form>
         <input id="textbox" type="text" placeholder="Orte durchsuchen" autocomplete="off" data-bind="textInput: filterInput, valueUpdate: afterkeydown">
-        <input id=#showAllButton type="button" value="Alle anzeigen" data-bind="click: showAll">
+        <input id=#showAllButton type="button" value="Alles anzeigen" data-bind="click: showAll(initialCenter)">
+        <input id=#showBerlin type="button" value="Berlim zoomen" data-bind="click: showAll(berlinCenter)">
       </form>
 
       <!-- Location list - allowing for filtering -->
