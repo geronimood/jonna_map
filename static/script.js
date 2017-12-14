@@ -53,7 +53,11 @@ var initialLocations = [
   {
     title: 'Atlantik - Carcans Plage',
     location: {lat: 45.0826302, lng: -1.1956478},
-    images: ['img/IMG_3943.jpg', 'img/IMG_4059.jpg', 'img/IMG_4297.jpg', 'img/IMG_4538.jpg']
+    images: ['https://dl.dropboxusercontent.com/s/2ozpa76hx9m9idx/thumb_IMG_3650_1024.jpg?raw=1'
+             'https://dl.dropboxusercontent.com/s/n5vz0du3ygrmni5/thumb_IMG_3653_1024.jpg?raw=1'
+             'https://dl.dropboxusercontent.com/s/4yfj36dyieayf8y/thumb_IMG_3667_1024.jpg?raw=1'
+             'https://dl.dropboxusercontent.com/s/mwqd3ufcxcczvph/thumb_IMG_3674_1024.jpg?raw=1'
+    ]
   },
   {
     title: 'Buergeramt Tempelhof',
