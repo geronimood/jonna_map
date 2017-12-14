@@ -305,7 +305,10 @@ function createSlideshow(pictures) {
   output += '<button class="button-left" onclick="plusDivs(-1)">&#10094;</button>';
   output += '<button class="button-right" onclick="plusDivs(+1)">&#10095;</button>';
   output += '</div>';
-  console.log('hi');
+
+  var slideIndex = 1;
+  showDivs(slideIndex);
+  
   return output;
 }
 
