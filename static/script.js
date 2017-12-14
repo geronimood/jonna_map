@@ -277,6 +277,7 @@ var ViewModel = function() {
 
     this.showBerlin = function() {
       map.setCenter(berlinCenter);
+      map.setZoom(12);
     }
 };
 
