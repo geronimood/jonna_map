@@ -292,7 +292,7 @@ function createSlideshow(pictures) {
   var output = '<div class="slideshow">';
   var path = '';
   for (var i = 0; i < pictures.length; i++) {
-    output += '<img class="mySlides" src=' + pictures[i]  + '>';
+    output += '<img class="mySlides" src="' + pictures[i]  + '">';
   }
   output += '<button class="w3-button w3-display-left" onclick="plusDivs(-1)">&#10094;</button>';
   output += '<button class="w3-button w3-display-right" onclick="plusDivs(+1)">&#10095;</button>';
