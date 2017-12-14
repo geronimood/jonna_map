@@ -22,6 +22,16 @@ li:hover {
     cursor: pointer;
 }
 
+li {
+  padding: 3px;
+  margin: 2px;
+}
+
+.zoomButton {
+  padding: 5px;
+  margin: 3px;
+}
+
 #map {
   bottom:0px;
   height: 60%;
