@@ -271,8 +271,12 @@ var ViewModel = function() {
       }
     }, this);
 
-    this.showAll = function(center) {
-      map.setCenter(center);
+    this.showAll = function() {
+      map.setCenter(initialCenter);
+    }
+
+    this.showBerlin = function() {
+      map.setCenter(berlinCenter);
     }
 };
 
