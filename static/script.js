@@ -553,8 +553,8 @@ function createSlideshow(pictures, id) {
   for (var i = 0; i < pictures.length; i++) {
     output += '<img id="I' + id + '_' + i + '" src="' + pictures[i]  + '">';
   }
-  output += '<button class="button-left" onclick="plusDivs(-1, I' + id + '_' + i + ', ' + pictures.length + ')">&#10094;</button>';
-  output += '<button class="button-right" onclick="plusDivs(+1, I'+ id + '_' + i + ', ' + pictures.length + ')">&#10095;</button>';
+  output += '<button id="button-left">&#10094;</button>';
+  output += '<button id="button-right" onclick="plusDivs(+1, I'+ id + '_' + i + ', ' + pictures.length + ')">&#10095;</button>';
   output += '</div>';
 
   return output;
@@ -584,6 +584,12 @@ function populateInfoWindow(marker, slideshow, infowindow) {
     infowindow.setContent('<div id="infowindow">' + '<h3>' + marker.title + '</h3>' + '<h4>Relevant Pictures</h4>' + slideshow);
     infowindow.addListener('closeclick', function() {
       infowindow.setMarker = null;
+    });
+    $("#button-left").on('click', function {
+      plusDivs(-1, 'I' + id + '_' + i, marker.length);
+    });
+    $("button-right").on('click', function {
+      plusDivs(+1, 'I' + id + '_' + i, marker.length);
     });
     slideIndex = 0;
     showDivs(slideIndex, marker.id, marker.length);
