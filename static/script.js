@@ -575,7 +575,7 @@ function showDivs(n, id) {
   for (k = 0; k < x.length; i++) {
       x[k].style.display = "none";
   }
-  //x[slideIndex-1].style.display = "block";
+  x[slideIndex-1].style.display = "block";
 
 }
 
