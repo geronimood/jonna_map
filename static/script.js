@@ -561,9 +561,6 @@ function createSlideshow(pictures, id) {
 
 // Functions for animating the Slideshow
 
-var slideIndex = 1;
-showDivs(slideIndex, id);
-
 function plusDivs(n, id) {
   showDivs(slideIndex += n, id);
 }
@@ -588,7 +585,7 @@ function populateInfoWindow(marker, slideshow, infowindow) {
     infowindow.addListener('closeclick', function() {
       infowindow.setMarker = null;
     });
-    var slideIndex = 1;
+    slideIndex = 1;
     showDivs(slideIndex, marker.id);
     infowindow.open(map, marker);
   }
