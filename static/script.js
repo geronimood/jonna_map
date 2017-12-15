@@ -567,8 +567,8 @@ function plusDivs(n, id, length) {
 }
 
 function showDivs(n, id, length) {
-  if (n > length) {slideIndex = 1};
-  if (n < 1) {slideIndex = length};
+  if (n > length) {slideIndex = 0};
+  if (n < 0) {slideIndex = length - 1};
   for (var i = 0; i < length; i++) {
     $('img[id="I' + id + "_" + i + '"]').hide();
     console.log('img[id="I' + id + "_" + i + '"]');
@@ -585,7 +585,7 @@ function populateInfoWindow(marker, slideshow, infowindow) {
     infowindow.addListener('closeclick', function() {
       infowindow.setMarker = null;
     });
-    slideIndex = 1;
+    slideIndex = 0;
     showDivs(slideIndex, marker.id, marker.length);
     infowindow.open(map, marker);
   }
