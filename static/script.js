@@ -551,10 +551,10 @@ function makeMarkerIcon(markerColor) {
 function createSlideshow(pictures, id) {
   var output = '<div class="slideshow">';
   for (var i = 0; i < pictures.length; i++) {
-    output += '<img id="' + id + '_' + i + '" src="' + pictures[i]  + '">';
+    output += '<img id="I' + id + '_' + i + '" src="' + pictures[i]  + '">';
   }
-  output += '<button class="button-left" onclick="plusDivs(-1, ' + id + ', ' + pictures.length + ')">&#10094;</button>';
-  output += '<button class="button-right" onclick="plusDivs(+1, '+ id + ', ' + pictures.length + ')">&#10095;</button>';
+  output += '<button class="button-left" onclick="plusDivs(-1, I' + id + ', ' + pictures.length + ')">&#10094;</button>';
+  output += '<button class="button-right" onclick="plusDivs(+1, I'+ id + ', ' + pictures.length + ')">&#10095;</button>';
   output += '</div>';
 
   return output;
@@ -571,9 +571,9 @@ function showDivs(n, id, length) {
   if (n > length) {slideIndex = 1};
   if (n < 1) {slideIndex = length} ;
   for (k = 0; k < length; i++) {
-      $('"#' + id + '_' + k + '"').hide();
+      $('"#I' + id + '_' + k + '"').hide();
   }
-  $('"#' + id + '_' + slideindex + '"').show();
+  $('"#I' + id + '_' + slideIndex + '"').show();
 
 }
 
