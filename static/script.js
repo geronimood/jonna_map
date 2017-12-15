@@ -555,7 +555,6 @@ function createSlideshow(pictures, id) {
   output += '<button class="button-left" onclick="plusDivs(-1, ' + id + ')">&#10094;</button>';
   output += '<button class="button-right" onclick="plusDivs(+1, '+ id + ')">&#10095;</button>';
   output += '</div>';
-  console.log(id);
   return output;
 }
 
@@ -567,6 +566,8 @@ function plusDivs(n, id) {
 
 function showDivs(n, id) {
   var k;
+  var key = '"mySlides' + id + '"';
+  console.log(key);
   var x = document.getElementsByClassName('"mySlides' + id + '"');
   if (n > x.length) {slideIndex = 1}
   if (n < 1) {slideIndex = x.length} ;
