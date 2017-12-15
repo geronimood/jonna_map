@@ -553,8 +553,8 @@ function createSlideshow(pictures, id) {
   for (var i = 0; i < pictures.length; i++) {
     output += '<img id="I' + id + '_' + i + '" src="' + pictures[i]  + '">';
   }
-  output += '<button class="button-left" onclick="plusDivs(-1, I' + id + ', ' + pictures.length + ')">&#10094;</button>';
-  output += '<button class="button-right" onclick="plusDivs(+1, I'+ id + ', ' + pictures.length + ')">&#10095;</button>';
+  output += '<button class="button-left" onclick="plusDivs(-1, I' + id + '_' + i + ', ' + pictures.length + ')">&#10094;</button>';
+  output += '<button class="button-right" onclick="plusDivs(+1, I'+ id + '_' + i + ', ' + pictures.length + ')">&#10095;</button>';
   output += '</div>';
 
   return output;
@@ -568,13 +568,13 @@ function plusDivs(n, id, length) {
 
 function showDivs(n, id, length) {
   if (n > length) {slideIndex = 1};
-  if (n < 1) {slideIndex = length} ;
+  if (n < 1) {slideIndex = length};
   for (var i = 0; i < length; i++) {
-    $('div[id="I' + id + "_" + i + '"]').hide();
-    //$('"#I' + id + '_' + k + '"').hide();
+    $('img[id="I' + id + "_" + i + '"]').hide();
+    console.log('img[id="I' + id + "_" + i + '"]');
   }
-  $('div[id="I' + id + "_" + slideIndex + '"]').show();
-
+  $('img[id="I' + id + "_" + slideIndex + '"]').show();
+  console.log('img[id="I' + id + "_" + slideIndex + '"]')
 }
 
 // Function for populating the InfoWindow with content.
