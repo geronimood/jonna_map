@@ -571,7 +571,8 @@ function showDivs(n, id, length) {
   if (n > length) {slideIndex = 1};
   if (n < 1) {slideIndex = length} ;
   for (k = 0; k < length; i++) {
-      $('"#I' + id + '_' + k + '"').hide();
+    $('div[id="I' + id + "_" + k + '"]').hide();
+    //$('"#I' + id + '_' + k + '"').hide();
   }
   $('"#I' + id + '_' + slideIndex + '"').show();
 
