@@ -587,10 +587,10 @@ function populateInfoWindow(marker, slideshow, infowindow) {
     });
     $("#button-left").on('click', (function() {
       plusDivs(-1, 'I' + id + '_' + i, marker.length);
-    });
+    }));
     $("button-right").on('click', (function() {
       plusDivs(+1, 'I' + id + '_' + i, marker.length);
-    });
+    }));
     slideIndex = 0;
     showDivs(slideIndex, marker.id, marker.length);
     infowindow.open(map, marker);
