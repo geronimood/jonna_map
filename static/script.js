@@ -570,11 +570,9 @@ function showDivs(n, id, length) {
   if (n > length) {slideIndex = 0};
   if (n < 0) {slideIndex = length - 1};
   for (var i = 0; i < length; i++) {
-    $('img[id="I' + id + "_" + i + '"]').hide();
-    console.log('img[id="I' + id + "_" + i + '"]');
+    $('*[id="I' + id + "_" + i + '"]').hide();
   }
-  $('img[id="I' + id + "_" + slideIndex + '"]').show();
-  console.log('img[id="I' + id + "_" + slideIndex + '"]')
+  $('*[id="I' + id + "_" + slideIndex + '"]').show();
 }
 
 // Function for populating the InfoWindow with content.
