@@ -585,10 +585,10 @@ function populateInfoWindow(marker, slideshow, infowindow) {
     infowindow.addListener('closeclick', function() {
       infowindow.setMarker = null;
     });
-    $("#button-left").on('click', function {
+    $("#button-left").on('click', (function {
       plusDivs(-1, 'I' + id + '_' + i, marker.length);
     });
-    $("button-right").on('click', function {
+    $("button-right").on('click', (function {
       plusDivs(+1, 'I' + id + '_' + i, marker.length);
     });
     slideIndex = 0;
