@@ -567,14 +567,13 @@ function plusDivs(n, id, length) {
 }
 
 function showDivs(n, id, length) {
-  var k;
   if (n > length) {slideIndex = 1};
   if (n < 1) {slideIndex = length} ;
-  for (k = 0; k < length; i++) {
-    $('div[id="I' + id + "_" + k + '"]').hide();
+  for (var i = 0; k < length; i++) {
+    $('div[id="I' + id + "_" + i + '"]').hide();
     //$('"#I' + id + '_' + k + '"').hide();
   }
-  $('"#I' + id + '_' + slideIndex + '"').show();
+  $('div[id="I' + id + "_" + slideIndex + '"]').show();
 
 }
 
