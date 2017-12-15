@@ -555,6 +555,7 @@ function createSlideshow(pictures, id) {
   output += '<button class="button-left" onclick="plusDivs(-1, ' + id + ')">&#10094;</button>';
   output += '<button class="button-right" onclick="plusDivs(+1, '+ id + ')">&#10095;</button>';
   output += '</div>';
+
   return output;
 }
 
@@ -569,12 +570,12 @@ function showDivs(n, id) {
   var key = '"mySlides' + id + '"';
   console.log(key);
   var x = document.getElementsByClassName('"mySlides' + id + '"');
-  if (n > x.length) {slideIndex = 1}
+  if (n > x.length) {slideIndex = 1};
   if (n < 1) {slideIndex = x.length} ;
   for (k = 0; k < x.length; i++) {
       x[k].style.display = "none";
   }
-  x[slideIndex-1].style.display = "block";
+  //x[slideIndex-1].style.display = "block";
 
 }
 
