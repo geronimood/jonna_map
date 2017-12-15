@@ -451,6 +451,7 @@ var Location = function(data) {
       position: this.location,
       title: this.title,
       id: this.id,
+      length: this.images.length;
       icon: defaultIcon,
       animation: google.maps.Animation.DROP
   });
@@ -550,10 +551,10 @@ function makeMarkerIcon(markerColor) {
 function createSlideshow(pictures, id) {
   var output = '<div class="slideshow">';
   for (var i = 0; i < pictures.length; i++) {
-    output += '<img class="mySlides' + id + '" src="' + pictures[i]  + '">';
+    output += '<img id="' + id + '_' + i + '" src="' + pictures[i]  + '">';
   }
-  output += '<button class="button-left" onclick="plusDivs(-1, ' + id + ')">&#10094;</button>';
-  output += '<button class="button-right" onclick="plusDivs(+1, '+ id + ')">&#10095;</button>';
+  output += '<button class="button-left" onclick="plusDivs(-1, ' + id + ', ' + pictures.length + ')">&#10094;</button>';
+  output += '<button class="button-right" onclick="plusDivs(+1, '+ id + ', ' + pictures.length + ')">&#10095;</button>';
   output += '</div>';
 
   return output;
@@ -561,22 +562,18 @@ function createSlideshow(pictures, id) {
 
 // Functions for animating the Slideshow
 
-function plusDivs(n, id) {
-  showDivs(slideIndex += n, id);
+function plusDivs(n, id, length) {
+  showDivs(slideIndex += n, id, length);
 }
 
-function showDivs(n, id) {
+function showDivs(n, id, length) {
   var k;
-  var key = '"mySlides' + id + '"';
-  var x = document.getElementsByClassName('"mySlides' + id + '"');
-  console.log(x);
-  console.log(slideIndex);
-  if (n > x.length) {slideIndex = 1};
-  if (n < 1) {slideIndex = x.length} ;
-  for (k = 0; k < x.length; i++) {
-      x[k].style.display = "none";
+  if (n > length) {slideIndex = 1};
+  if (n < 1) {slideIndex = length} ;
+  for (k = 0; k < length; i++) {
+      $('"' + id + '_' + k + '"').hide();
   }
-  //x[slideIndex-1].style.display = "block";
+  $('"' + id + '_' + slideindex + '"').show();
 
 }
 
@@ -589,7 +586,7 @@ function populateInfoWindow(marker, slideshow, infowindow) {
       infowindow.setMarker = null;
     });
     slideIndex = 1;
-    showDivs(slideIndex, marker.id);
+    showDivs(slideIndex, marker.id, marker.length);
     infowindow.open(map, marker);
   }
 };
