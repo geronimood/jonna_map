@@ -568,14 +568,15 @@ function plusDivs(n, id) {
 function showDivs(n, id) {
   var k;
   var key = '"mySlides' + id + '"';
-  console.log(key);
   var x = document.getElementsByClassName('"mySlides' + id + '"');
+  console.log(x);
+  console.log(slideIndex);
   if (n > x.length) {slideIndex = 1};
   if (n < 1) {slideIndex = x.length} ;
   for (k = 0; k < x.length; i++) {
       x[k].style.display = "none";
   }
-  x[slideIndex-1].style.display = "block";
+  //x[slideIndex-1].style.display = "block";
 
 }
 
