@@ -3,12 +3,14 @@ var initialCenter;
 var berlinCenter;
 var largeInfoWindow;
 var markers = [];
+var slideIndex;
 
 // Array with the initial locations.
 var initialLocations = [
   {
     title: 'St. Joseph Krankenhaus',
     location: {lat: 52.478116, lng: 13.37389},
+    id: 1,
     images:
     [
       'https://dl.dropboxusercontent.com/s/1wkk7gxrlh71le5/IMG_0027.JPG?raw=1',
@@ -35,6 +37,7 @@ var initialLocations = [
   {
     title: 'Tempelhofer Feld',
     location: {lat: 52.4742941, lng: 13.4146008},
+    id: 2,
     images:
     [
       'https://dl.dropboxusercontent.com/s/u0homizl2q1w7vs/IMG_3906.JPG?raw=1',
@@ -48,6 +51,7 @@ var initialLocations = [
   {
     title: 'Kienietzer 98 - Home Sweet Home',
     location: {lat: 52.4762807, lng: 13.425673},
+    id: 3,
     images:
     [
       'https://dl.dropboxusercontent.com/s/nno432s5nclok7v/IMG_0044.JPG?raw=1',
@@ -151,6 +155,7 @@ var initialLocations = [
   {
     title: 'Sonnenallee 72',
     location: {lat: 52.4839232, lng: 13.4329213},
+    id: 4,
     images:
     [
       'https://dl.dropboxusercontent.com/s/1tp7isclv40yp38/FullSizeRender%2037.JPG?raw=1',
@@ -185,6 +190,7 @@ var initialLocations = [
   {
     title: 'Hasenheide',
     location: {lat: 52.482901, lng: 13.407235},
+    id: 5,
     images:
     [
       'https://dl.dropboxusercontent.com/s/vmuilq12xj631s9/IMG_4187.jpg?raw=1',
@@ -196,6 +202,7 @@ var initialLocations = [
   {
     title: 'Kassel',
     location: {lat: 51.3344827, lng: 9.4973313},
+    id: 6,
     images:
     [
       'https://dl.dropboxusercontent.com/s/2bs436qyv02frlf/IMG_4210.JPG?raw=1',
@@ -214,6 +221,7 @@ var initialLocations = [
   {
     title: 'Ulm',
     location: {lat: 48.409296, lng: 9.9546359},
+    id: 7,
     images:
     [
       'https://dl.dropboxusercontent.com/s/68xckp6jshhj2ky/IMG_4378.jpg?raw=1',
@@ -224,6 +232,7 @@ var initialLocations = [
   {
     title: 'Vogesen - Hautes Huttes',
     location: {lat: 48.0987658, lng: 7.10977},
+    id: 8,
     images:
     [
       'https://dl.dropboxusercontent.com/s/rvhdr8q04zxecmr/IMG_3515.JPG?raw=1',
@@ -244,6 +253,7 @@ var initialLocations = [
   {
     title: 'Atlantik - Carcans Plage',
     location: {lat: 45.0826302, lng: -1.1956478},
+    id: 9,
     images:
     [
       'https://dl.dropboxusercontent.com/s/2ozpa76hx9m9idx/thumb_IMG_3650_1024.jpg?raw=1',
@@ -255,6 +265,7 @@ var initialLocations = [
   {
     title: 'Buergeramt Tempelhof',
     location: {lat: 52.4621986, lng: 13.3856074},
+    id: 10,
     images:
     [
       'https://dl.dropboxusercontent.com/s/u6l4k82rvxxak4c/IMG_4698.JPG?raw=1'
@@ -263,6 +274,7 @@ var initialLocations = [
   {
     title: 'Csabis Buero',
     location: {lat: 52.4994332, lng: 13.4319712},
+    id: 11,
     images:
     [
       'https://dl.dropboxusercontent.com/s/ty2v7mfxxg5kx50/IMG_5074.JPG?raw=1'
@@ -271,6 +283,7 @@ var initialLocations = [
   {
     title: 'Flughafen Schoenefeld',
     location: {lat: 52.3854444, lng: 13.5194261},
+    id: 12,
     images:
     [
       'https://dl.dropboxusercontent.com/s/nsc82hmag17wta4/IMG_4870.JPG?raw=1'
@@ -279,6 +292,7 @@ var initialLocations = [
   {
     title: 'Fulda 6',
     location: {lat: 52.4829832, lng: 13.4328913},
+    id: 13,
     images:
     [
       'https://dl.dropboxusercontent.com/s/ezqhyfl8wk9d6p8/IMG_4562.JPG?raw=1'
@@ -287,6 +301,7 @@ var initialLocations = [
   {
     title: 'Goerlitzer Park',
     location: {lat: 52.4965095, lng: 13.4355578},
+    id: 14,
     images:
     [
       'https://dl.dropboxusercontent.com/s/6s49xhei7mpi4d3/IMG_4985.JPG?raw=1'
@@ -295,6 +310,7 @@ var initialLocations = [
   {
     title: 'Kreuz-Koelln',
     location: {lat: 52.4871557, lng: 13.4367517},
+    id: 15,
     images:
     [
       'https://dl.dropboxusercontent.com/s/3oi145m86d2tti7/thumb_IMG_3255_1024.jpg?raw=1',
@@ -304,6 +320,7 @@ var initialLocations = [
   {
     title: 'Prinzenbad',
     location: {lat: 52.497381, lng: 13.4023118},
+    id: 16,
     images:
     [
       'https://dl.dropboxusercontent.com/s/igxvotzow8xuq0p/IMG_4038.JPG?raw=1',
@@ -313,6 +330,7 @@ var initialLocations = [
   {
     title: 'Schillerkiez',
     location: {lat: 52.477002, lng: 13.4209917},
+    id: 17,
     images:
     [
       'https://dl.dropboxusercontent.com/s/9b71bhu42l0fclb/IMG_3845.JPG?raw=1',
@@ -418,8 +436,9 @@ var Location = function(data) {
   this.title = data.title;
   this.location = data.location;
   this.images = data.images;
+  this.id = data.id;
 
-  this.slideshow = createSlideshow(this.images);
+  this.slideshow = createSlideshow(this.images, this.id);
 
   this.visible = ko.observable(true);
 
@@ -431,6 +450,7 @@ var Location = function(data) {
   this.marker = new google.maps.Marker({
       position: this.location,
       title: this.title,
+      id: this.id,
       icon: defaultIcon,
       animation: google.maps.Animation.DROP
   });
@@ -527,37 +547,36 @@ function makeMarkerIcon(markerColor) {
 
 // Function for creating the image Slideshow
 
-function createSlideshow(pictures) {
+function createSlideshow(pictures, id) {
   var output = '<div class="slideshow">';
-  var path = '';
   for (var i = 0; i < pictures.length; i++) {
-    output += '<img class="mySlides" src="' + pictures[i]  + '">';
+    output += '<img class="mySlides' + id + '" src="' + pictures[i]  + '">';
   }
-  output += '<button class="button-left" onclick="plusDivs(-1)">&#10094;</button>';
-  output += '<button class="button-right" onclick="plusDivs(+1)">&#10095;</button>';
+  output += '<button class="button-left" onclick="plusDivs(-1, ' + id + ')">&#10094;</button>';
+  output += '<button class="button-right" onclick="plusDivs(+1, '+ id + ')">&#10095;</button>';
   output += '</div>';
-
+  console.log(id);
   return output;
 }
 
 // Functions for animating the Slideshow
 
 var slideIndex = 1;
-showDivs(slideIndex);
+showDivs(slideIndex, id);
 
-function plusDivs(n) {
-  showDivs(slideIndex += n);
+function plusDivs(n, id) {
+  showDivs(slideIndex += n, id);
 }
 
-function showDivs(n) {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
+function showDivs(n, id) {
+  var k;
+  var x = document.getElementsByClassName('"mySlides' + id + '"');
   if (n > x.length) {slideIndex = 1}
   if (n < 1) {slideIndex = x.length} ;
-  for (i = 0; i < x.length; i++) {
-      x[i].style.display = "none";
+  for (k = 0; k < x.length; i++) {
+      x[k].style.display = "none";
   }
-  //x[slideIndex-1].style.display = "block";
+  x[slideIndex-1].style.display = "block";
 
 }
 
@@ -569,6 +588,8 @@ function populateInfoWindow(marker, slideshow, infowindow) {
     infowindow.addListener('closeclick', function() {
       infowindow.setMarker = null;
     });
+    var slideIndex = 1;
+    showDivs(slideIndex, marker.id);
     infowindow.open(map, marker);
   }
 };
