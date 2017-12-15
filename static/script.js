@@ -563,12 +563,14 @@ function createSlideshow(pictures, id) {
 // Functions for animating the Slideshow
 
 function plusDivs(n, id, length) {
-  showDivs(slideIndex += n, id, length);
+  showDivs(n, id, length);
 }
 
 function showDivs(n, id, length) {
+  slideIndex += n;
   if (n > length) {slideIndex = 0};
   if (n < 0) {slideIndex = length - 1};
+  console.log(slideIndex);
   for (var i = 0; i < length; i++) {
     $('*[id="I' + id + "_" + i + '"]').hide();
   }
