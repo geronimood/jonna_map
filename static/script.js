@@ -451,7 +451,7 @@ var Location = function(data) {
       position: this.location,
       title: this.title,
       id: this.id,
-      length: this.images.length;
+      length: this.images.length,
       icon: defaultIcon,
       animation: google.maps.Animation.DROP
   });
